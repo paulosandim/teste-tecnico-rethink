@@ -17,6 +17,7 @@ describe('API /cadastro', () => {
       })
 
     expect(res.status).toBe(201)
-    expect(res.body).toHaveProperty('message') // ajuste conforme necessário
+    expect(res.body).toHaveProperty('message')
   })
 })
+

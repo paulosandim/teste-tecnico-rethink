@@ -24,8 +24,6 @@ Este projeto contém a automação de testes end-to-end para a API de Bank [Reth
 
 ## Instalação e execução
 
-## Rodando a aplicação
-
 ### Instalação das dependências:
 
 ```
