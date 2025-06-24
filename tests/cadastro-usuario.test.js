@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { faker } = require('@faker-js/faker')
+const { faker, it } = require('@faker-js/faker')
 const { gerarCpf } = require('../utils/dataGenerator')
 
 const api = 'https://points-app-backend.vercel.app'
@@ -19,5 +19,7 @@ describe('API /cadastro', () => {
     expect(res.status).toBe(201)
     expect(res.body).toHaveProperty('message')
   })
+
+  it('confirmar e-mail do usuário')
 })
 
