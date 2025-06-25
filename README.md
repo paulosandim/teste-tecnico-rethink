@@ -64,6 +64,8 @@ npm test
 
 - Baixa: O bug pode ser corrigido em um momento posterior, sem impacto significativo no negócio ou nos usuários.
 
+---
+
 ### 1 - Usuário Deletado realizando operações de Cadastro/Criação
 ### Criticidade: Média
 
