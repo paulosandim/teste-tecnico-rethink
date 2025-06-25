@@ -46,9 +46,9 @@ npm test
 ## Evidências dos Testes
 
 ### Execução Completa no Postman:
-![evidencias-manual-postman](./evidencias/fluxo-manual-postman.gif)
+![evidencias-manual-postman](./evidencias/fluxo-completo-postman.gif)
 
-### Execução Completa no local no Jest:
+### Execução Completa no Jest:
 ![evidencias-jest-completo](./evidencias/fluxo-completo-jest.gif)
 
 ## Bugs encontrados:
