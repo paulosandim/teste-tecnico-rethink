@@ -44,6 +44,16 @@ describe('fluxo completo', () => {
     expect(enviaPontos.body).toHaveProperty('message')
     console.log(enviaPontos.body)
 
+
+    const depositaPontos = await request(api)
+      .post('/caixinha/deposit')
+      .set('Authorization', `Bearer ${sessaoJWT}`)
+      .send({ amount: 30 });
+
+    expect(depositaPontos.status).toBe(200)
+    expect(depositaPontos.body).toHaveProperty('message')
+    console.log(depositaPontos.body)
+
   })
 
 })
