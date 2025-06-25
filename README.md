@@ -155,6 +155,7 @@ npm test
 - Ideal seria padronizar esses retornos, seguindo, claro, boas práticas da LGPD.
 
 **Evidências:**
+
 ![evidencias-bug-generico](./evidencias/bugs/bug-msg-generica-cadastro.gif)
 
 ---
