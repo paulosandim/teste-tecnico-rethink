@@ -1,4 +1,4 @@
-name: Run API Tests
+name: Run API Tests with HTML Report
 
 on:
   push:
@@ -22,5 +22,11 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar testes
+      - name: Rodar testes (gera relatório HTML)
         run: npm test
+
+      - name: Upload do relatório HTML como artefato
+        uses: actions/upload-artifact@v3
+        with:
+          name: jest-html-report
+          path: reports/test-report.html
