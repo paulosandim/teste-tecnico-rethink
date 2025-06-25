@@ -169,7 +169,9 @@ npm test
 
 ---
 
-## O sistema está pronto para subir em Produção?
+## A grande dúvida: o sistema está pronto para subir em Produção?
+
+![meme-pensando](https://media.tenor.com/q07DHKhjEBQAAAAM/nazare-tedesco-nazare-confusa.gif)
 
 ### Não está pronto. Não recomendaria subida para Produção.
 
