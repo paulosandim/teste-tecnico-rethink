@@ -54,10 +54,11 @@ npm test
 ## Evidências dos Testes
 
 ### Execução Completa no Postman:
+- A colection e o environment podem ser encontrados na pasta [postman](./postman/) para execução.
 ![evidencias-manual-postman](./evidencias/testes/fluxo-completo-postman.gif)
 
 ### Execução Completa no Jest e Relatório HTML:
-- O Relatório pode ser encontrado na pasta [reports](./reports), no formato HTML e pronto para ser visualizado após a cada execução.
+- O Relatório pode ser encontrado na pasta [reports](./reports), no formato HTML e pronto para ser visualizado após cada execução.
 
 ![evidencias-jest-completo](./evidencias/testes/fluxo-completo-jest.gif)
 
