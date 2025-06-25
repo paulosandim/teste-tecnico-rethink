@@ -1,13 +1,11 @@
-name: Run API Tests with HTML Report
+name: Testes e publicação do relatório
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  test:
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +20,17 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar testes (gera relatório HTML)
+      - name: Rodar testes com Relatório
         run: npm test
 
-      - name: Upload do relatório HTML como artefato
-        uses: actions/upload-artifact@v4
+      - name: Criar index.html
+        run: |
+          mkdir -p ./reports
+          echo '<meta http-equiv="refresh" content="0; URL=test-report.html">' > ./reports/index.html
+
+      - name: Publicar relatório no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: jest-html-report
-          path: reports/test-report.html
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
+          publish_branch: gh-pages
