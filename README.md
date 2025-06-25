@@ -48,7 +48,10 @@ npm test
 ### Execução Completa no Postman:
 ![evidencias-manual-postman](./evidencias/fluxo-completo-postman.gif)
 
-### Execução Completa no Jest:
+### Execução Completa no Jest e Relatório HTML:
+- O Relatório pode ser encontrado na pasta [reports](./reports), no formato HTML e pronto para ser visualizado após a cada execução.
+
 ![evidencias-jest-completo](./evidencias/fluxo-completo-jest.gif)
+
 
 ## Bugs encontrados:
