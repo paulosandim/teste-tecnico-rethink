@@ -37,4 +37,36 @@ describe('validando dados inválidos no cadastro de usuário', () => {
 
   })
 
+  it('verifica Senhas divergentes', async () => {
+    const usuario = await dadosUsuario()
+    cpf = usuario.cpf
+    full_name = usuario.full_name
+    email = usuario.email
+    password = usuario.password
+
+    const resCadastro = await request(api)
+      .post('/cadastro')
+      .send({ cpf, full_name, email, password, confirmPassword: 'teste@123' })
+
+    expect(resCadastro.status).toBe(400)
+    expect(resCadastro.body.error).toBe('Senhas não conferem')
+
+  })
+
+  it('verifica Senha fraca', async () => {
+    const usuario = await dadosUsuario()
+    cpf = usuario.cpf
+    full_name = usuario.full_name
+    email = usuario.email
+    password = 'senha'
+
+    const resCadastro = await request(api)
+      .post('/cadastro')
+      .send({ cpf, full_name, email, password, confirmPassword: password })
+
+    expect(resCadastro.status).toBe(400)
+    expect(resCadastro.body.error).toBe('Senha fraca')
+
+  })
+
 }) 
