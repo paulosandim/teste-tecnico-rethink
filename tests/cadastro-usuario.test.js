@@ -1,11 +1,11 @@
 const request = require('supertest')
-const { faker, it } = require('@faker-js/faker')
+const { faker } = require('@faker-js/faker')
 const { gerarCPF } = require('../utils/dataGenerator')
 
 const api = 'https://points-app-backend.vercel.app'
 
 describe('API /cadastro', () => {
-  it('cadastrar um novo usuário com sucesso', async () => {
+  it('cadastrar um novo usuário com sucesso e confirma e-mail', async () => {
     const res = await request(api)
       .post('/cadastro')
       .send({
@@ -19,6 +19,17 @@ describe('API /cadastro', () => {
     console.log(res.body)
     expect(res.status).toBe(201)
     expect(res.body).toHaveProperty('message')
+    expect(res.body).toHaveProperty('confirmToken')
+
+    const userToken = res.body.confirmToken
+
+    const confirmaEmail = await request(api)
+      .get(`/confirm-email?token=${userToken}`)
+
+    expect(confirmaEmail.status).toBe(200);
+    expect(confirmaEmail.text).toBe('E-mail confirmado com sucesso.');
+    console.log(res.body)
+
   })
 
 })
