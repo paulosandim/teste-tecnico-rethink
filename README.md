@@ -58,16 +58,13 @@ npm test
 
 ### Tabela de Criticidade
 
-**Alta**
-- O bug precisa ser corrigido imediatamente, pois representa um risco significativo para o negócio ou para os usuários.
+- Alta: O bug precisa ser corrigido imediatamente, pois representa um risco significativo para o negócio ou para os usuários.
 
-**Média** 
-- O bug precisa ser corrigido em breve, mas não representa um risco imediato.
+- Média: O bug precisa ser corrigido em breve, mas não representa um risco imediato.
 
-**Baixa**
-- O bug pode ser corrigido em um momento posterior, sem impacto significativo no negócio ou nos usuários.
+- Baixa: O bug pode ser corrigido em um momento posterior, sem impacto significativo no negócio ou nos usuários.
 
-### Usuário Deletado realizando operações de Cadastro/Criação
+### 1 - Usuário Deletado realizando operações de Cadastro/Criação
 ### Criticidade: Média
 
 - Após exclusão do usuário, ainda é possível realizar requisições do tipo *POST*, por exemplo, enviar pontos, depositar pontos, etc.
@@ -85,4 +82,5 @@ npm test
 ```
 
 **Evidências:**
+
 ![evidencias-bug-delete](./evidencias/bugs/bug-usuario-deletado.gif)
