@@ -12,11 +12,12 @@ describe('API /cadastro', () => {
         cpf: gerarCPF(),
         full_name: faker.person.fullName(),
         email: faker.internet.email(),
-        password: 'Uno@1234',
-        confirmPassword: 'Uno@1234',
+        password: 'Tres@1234',
+        confirmPassword: 'Tres@1234',
       })
 
-    console.log(res.body)
+    const email = 
+
     expect(res.status).toBe(201)
     expect(res.body).toHaveProperty('message')
     expect(res.body).toHaveProperty('confirmToken')
@@ -28,7 +29,7 @@ describe('API /cadastro', () => {
 
     expect(confirmaEmail.status).toBe(200);
     expect(confirmaEmail.text).toBe('E-mail confirmado com sucesso.');
-    console.log(res.body)
+    console.log(confirmaEmail.text)
 
   })
 
