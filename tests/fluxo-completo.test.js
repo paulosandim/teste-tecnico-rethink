@@ -72,7 +72,7 @@ describe('fluxo completo Rethink Bank', () => {
       .set('Authorization', `Bearer ${jwt}`)
       .send({ password })
 
-    expect(res.status).toBe(200)
+    expect(res.status).toBe(300)
     expect(res.body).toHaveProperty('message')
   })
 })
