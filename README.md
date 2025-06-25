@@ -132,7 +132,7 @@ npm test
 
 **Evidências:**
 
-![evidencias-bug-string-withdraw](./evidencias/bugs/bug-caixinha-withdraw-string.gif.gif)
+![evidencias-bug-string-withdraw](./evidencias/bugs/bug-caixinha-withdraw-string.gif)
 
 ---
 
