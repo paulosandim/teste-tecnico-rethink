@@ -54,12 +54,14 @@ npm test
 ## Evidências dos Testes
 
 ### Execução Completa no Postman:
+
 - A collection e o environment podem ser encontrados na pasta [postman](./postman/) para execução.
+
 ![evidencias-manual-postman](./evidencias/testes/fluxo-completo-postman.gif)
 
 ### Execução Completa no Jest e Relatório HTML:
-- Para visualizar o Relatório online, após execução das Actions, criei uma página no [GitHub Pages](https://paulosandim.github.io/teste-tecnico-rethink/reports/test-report.html). 
-- Também pode ser encontrado no formato HTML, para download, na pasta [reports](./reports/).
+
+- O Relatório pode ser encontrado no formato HTML, para download, na pasta [reports](./reports/) ou como Artefato após a execução no GitHub Actions.
 
 ![evidencias-jest-completo](./evidencias/testes/fluxo-completo-jest.gif)
 
@@ -138,10 +140,27 @@ npm test
 
 ---
 
-### Tabela de Criticidade
+### Bug 06 - Mensagem muito genérica para o usuário ao tentar realizar Cadastro
+### Criticidade: Baixa
 
-- Alta: O bug precisa ser corrigido imediatamente, pois representa um risco significativo para o negócio ou para os usuários.
+- Caso o usuário erre o CPF, ou e-mail, no momento de realizar o Cadastro, é retornado mensagens genéricas. 
+- Ideal seria padronizar esses retornos, seguindo, claro, boas práticas da LGPD.
 
-- Média: O bug precisa ser corrigido em breve, mas não representa um risco imediato.
+**Evidências:**
+![evidencias-bug-generico](./evidencias/bugs/bug-msg-generica-cadastro.gif)
 
-- Baixa: O bug pode ser corrigido em um momento posterior, sem impacto significativo no negócio ou nos usuários.
+---
+
+### Legenda Criticidade:
+
+- **Alta**: O bug precisa ser corrigido imediatamente, pois representa um risco significativo para o negócio ou para os usuários.
+
+- **Média**: O bug precisa ser corrigido em breve, mas não representa um risco imediato.
+
+- **Baixa**: O bug pode ser corrigido em um momento posterior, sem impacto significativo no negócio ou nos usuários.
+
+---
+
+## Subida para Produção
+
+### Execução Completa no Postman:
