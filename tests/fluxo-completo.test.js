@@ -18,6 +18,7 @@ describe('fluxo completo', () => {
 
     expect(res.status).toBe(201)
     expect(res.body).toHaveProperty('message')
+    console.log(res.body.message)
     expect(res.body).toHaveProperty('confirmToken')
 
     const userToken = res.body.confirmToken
@@ -42,7 +43,7 @@ describe('fluxo completo', () => {
 
     expect(enviaPontos.status).toBe(200)
     expect(enviaPontos.body).toHaveProperty('message')
-    console.log(enviaPontos.body)
+    console.log(enviaPontos.body.message)
 
 
     const depositaPontos = await request(api)
@@ -53,6 +54,24 @@ describe('fluxo completo', () => {
     expect(depositaPontos.status).toBe(200)
     expect(depositaPontos.body).toHaveProperty('message')
     console.log(depositaPontos.body)
+
+    const confereSaldo = await request(api)
+      .get('/points/saldo')
+      .set('Authorization', `Bearer ${sessaoJWT}`)
+
+    expect(confereSaldo.status).toBe(200)
+    expect(confereSaldo.body).toHaveProperty('normal_balance')
+    console.log(confereSaldo.body.normal_balance)
+
+
+    const excluirConta = await request(api)
+      .delete('/account')
+      .set('Authorization', `Bearer ${sessaoJWT}`)
+      .send({ password: password })
+
+    expect(excluirConta.status).toBe(200)
+    expect(excluirConta.body).toHaveProperty('message')
+    console.log(excluirConta.body.message)
 
   })
 
