@@ -4,6 +4,8 @@ Este projeto contém a automação de testes end-to-end para a API de Bank [Reth
 
 É parte de um Teste Técnico para vaga de QA Sênior na empresa **Rethink**.
 
+---
+
 ## Funcionalidades Testadas na Automação da API
 
 - Cadastro de um novo usuário
@@ -20,6 +22,8 @@ Este projeto contém a automação de testes end-to-end para a API de Bank [Reth
 
 - Foram divididos seguindo o modelo do Swagger: Auth, Caixinha e Points.
 
+---
+
 ## Tecnologias Utilizadas
 
 - [Jest](http://jestjs.io/)
@@ -29,6 +33,7 @@ Este projeto contém a automação de testes end-to-end para a API de Bank [Reth
 - [Postman](https://www.postman.com/)
 - [Jest HTML Reporter](https://www.npmjs.com/package/jest-html-reporter)
 
+---
 
 ## Instalação e execução
 
@@ -44,6 +49,8 @@ npm install
 npm test
 ```
 
+---
+
 ## Evidências dos Testes
 
 ### Execução Completa no Postman:
@@ -53,6 +60,8 @@ npm test
 - O Relatório pode ser encontrado na pasta [reports](./reports), no formato HTML e pronto para ser visualizado após a cada execução.
 
 ![evidencias-jest-completo](./evidencias/testes/fluxo-completo-jest.gif)
+
+---
 
 ## Bugs
 
@@ -76,6 +85,56 @@ npm test
 **Evidências:**
 
 ![evidencias-bug-delete](./evidencias/bugs/bug-usuario-deletado.gif)
+
+---
+
+### Bug 02 - Retorno incorreto ao passar valor 0 como amount na rota /caixinha/deposit
+### Criticidade: Média
+
+- Quando o usuário faz a requisição /caixinha/deposit passando o valor 0 no campo amount, está sendo retornado *Status Code 200* e a mensagem *"Depósito na caixinha realizado com sucesso."*.
+- O correto seria *Status Code 400* e a mensagem *"Saldo insuficiente ou requisição inválida."*, conforme descrito na documentação que está no [Swagger](https://points-app-backend.vercel.app/docs).
+
+**Evidências:**
+
+![evidencias-bug-zero-deposit](./evidencias/bugs/bug-caixinha-deposit-zero.gif)
+
+---
+
+### Bug 03 - Retorno incorreto ao passar valor 0 como amount na rota /caixinha/withdraw
+### Criticidade: Média
+
+- Quando o usuário faz a requisição /caixinha/withdraw passando o valor 0 no campo amount, está sendo retornado *Status Code 200* e a mensagem *"Resgate da caixinha realizado."*.
+- O correto seria *Status Code 400* e a mensagem *"Saldo na caixinha insuficiente ou requisição inválida."*, conforme descrito na documentação que está no Swagger.
+
+**Evidências:**
+
+![evidencias-bug-zero-withdraw](./evidencias/bugs/bug-caixinha-withdraw-zero.gif)
+
+---
+
+### Bug 04 - Retorno incorreto ao passar String como amount na rota /caixinha/deposit
+### Criticidade: Média
+
+- Quando o usuário faz a requisição /caixinha/deposit passando uma string (vazia ou não) no campo amount, está sendo retornado *Status Code 200* e a mensagem *"Depósito na caixinha realizado com sucesso."*.
+- O correto seria *Status Code 400* e a mensagem *"Saldo insuficiente ou requisição inválida."*, conforme descrito na documentação que está no Swagger.
+
+**Evidências:**
+
+![evidencias-bug-string-deposit](./evidencias/bugs/bug-caixinha-deposit-string.gif)
+
+---
+
+### Bug 05 - Retorno incorreto ao passar String como amount na rota /caixinha/withdraw
+### Criticidade: Média
+
+- Quando o usuário faz a requisição /caixinha/withdraw passando uma string (vazia ou não) no campo amount, está sendo retornado *Status Code 200* e a mensagem *"Resgate da caixinha realizado."*.
+- O correto seria *Status Code 400* e a mensagem *"Saldo na caixinha insuficiente ou requisição inválida."*, conforme descrito na documentação que está no Swagger.
+
+**Evidências:**
+
+![evidencias-bug-string-withdraw](./evidencias/bugs/bug-caixinha-withdraw-string.gif.gif)
+
+---
 
 ### Tabela de Criticidade
 
