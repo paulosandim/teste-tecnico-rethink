@@ -27,6 +27,7 @@ Este projeto contém a automação de testes end-to-end para a API de Bank [Reth
 - [Faker](https://fakerjs.dev/)
 - [Node.js 22+](https://nodejs.org/en/download)
 - [Postman](https://www.postman.com/)
+- [Jest HTML Reporter](https://www.npmjs.com/package/jest-html-reporter)
 
 
 ## Instalação e execução
@@ -52,6 +53,5 @@ npm test
 - O Relatório pode ser encontrado na pasta [reports](./reports), no formato HTML e pronto para ser visualizado após a cada execução.
 
 ![evidencias-jest-completo](./evidencias/fluxo-completo-jest.gif)
-
 
 ## Bugs encontrados:
