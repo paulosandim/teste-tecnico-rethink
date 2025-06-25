@@ -58,7 +58,8 @@ npm test
 ![evidencias-manual-postman](./evidencias/testes/fluxo-completo-postman.gif)
 
 ### Execução Completa no Jest e Relatório HTML:
-- O Relatório pode ser encontrado na pasta [reports](./reports), no formato HTML e pronto para ser visualizado após cada execução.
+- Para visualizar o Relatório online, após execução das Actions, criei uma página no [GitHub Pages](https://paulosandim.github.io/teste-tecnico-rethink/reports/test-report.html). 
+- Também pode ser encontrado no formato HTML, para download, na pasta [reports](./reports/).
 
 ![evidencias-jest-completo](./evidencias/testes/fluxo-completo-jest.gif)
 
