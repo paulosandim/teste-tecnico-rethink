@@ -1,22 +1,20 @@
 const request = require('supertest')
-const { faker } = require('@faker-js/faker')
-const { gerarCPF } = require('../utils/dataGenerator')
+const {api, dadosUsuario} = require('../utils/testSetup')
 
-const api = 'https://points-app-backend.vercel.app'
-
-describe('API /cadastro', () => {
+describe('fluxo de Auth', () => {
   it('cadastrar um novo usuário com sucesso e confirma e-mail', async () => {
+
+    const { cpf, full_name, email, password } = await dadosUsuario()
+
     const res = await request(api)
       .post('/cadastro')
       .send({
-        cpf: gerarCPF(),
-        full_name: faker.person.fullName(),
-        email: faker.internet.email(),
-        password: 'Tres@1234',
-        confirmPassword: 'Tres@1234',
+        cpf,
+        full_name,
+        email,
+        password,
+        confirmPassword: password
       })
-
-    const email = 
 
     expect(res.status).toBe(201)
     expect(res.body).toHaveProperty('message')
@@ -30,6 +28,21 @@ describe('API /cadastro', () => {
     expect(confirmaEmail.status).toBe(200);
     expect(confirmaEmail.text).toBe('E-mail confirmado com sucesso.');
     console.log(confirmaEmail.text)
+
+    // await request(api)
+    // .post('/login')
+    // .send({ email, password })
+
+    // const sessaoJWT = res.body.token
+
+    // const enviaPontos = await request(api)
+    //   .post('/points/send')
+    //   .set('Authorization', `Bearer ${sessaoJWT}`)
+    //   .send({ recipientCpf: cpf, amount: 50 });
+
+    // expect(enviaPontos.status).toBe(200);
+    // expect(enviaPontos.body.message).toBe('Pontos enviados com sucesso.');
+    // console.log(enviaPontos)
 
   })
 
