@@ -1,4 +1,4 @@
-name: Run API Tests with HTML Report
+name: Testes de API com HTML Report
 
 on:
   push:

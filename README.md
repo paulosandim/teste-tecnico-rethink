@@ -117,7 +117,7 @@ npm test
 ---
 
 ### Bug 04 - Retorno incorreto ao passar String como amount na rota /caixinha/deposit
-### Criticidade: Média
+### Criticidade: Alta
 
 - Quando o usuário faz a requisição /caixinha/deposit passando uma string (vazia ou não) no campo amount, está sendo retornado *Status Code 200* e a mensagem *"Depósito na caixinha realizado com sucesso."*.
 - O correto seria *Status Code 400* e a mensagem *"Saldo insuficiente ou requisição inválida."*, conforme descrito na documentação que está no Swagger.
@@ -129,7 +129,7 @@ npm test
 ---
 
 ### Bug 05 - Retorno incorreto ao passar String como amount na rota /caixinha/withdraw
-### Criticidade: Média
+### Criticidade: Alta
 
 - Quando o usuário faz a requisição /caixinha/withdraw passando uma string (vazia ou não) no campo amount, está sendo retornado *Status Code 200* e a mensagem *"Resgate da caixinha realizado."*.
 - O correto seria *Status Code 400* e a mensagem *"Saldo na caixinha insuficiente ou requisição inválida."*, conforme descrito na documentação que está no Swagger.
@@ -161,6 +161,12 @@ npm test
 
 ---
 
-## Subida para Produção
+## O sistema está pronto para subir em Produção?
 
-### Execução Completa no Postman:
+### Não está pronto. Não recomendaria subida para Produção:
+
+1 - Dado que estamos trabalhando com sistema financeiro, as validações estão frágeis. Por exemplo, no /deposit e no /withdraw estão aceitando o mount = 0, além de aceitar Strings. Isso é crítico para qualquer sistema que movimenta pontos/dinheiro. Nesse contexto, podemos ter inconsistências de saldo, bugs sem percebemos e até mesmo tentativas de ações maliciosas.
+
+2 - Usuário deletado que pode interagir com o sistema, o correto seria impedi-lo de realizar as operações normalmente. Por exemplo, ter flags de proteção nesses casos, seguindo a LGPD, evitando incosistências em auditórias, falsos positivos em relatórios, etc.
+
+3 - Nos bugs do amout, onde o status code era 200 ao invés de 400, dando um falso positivo, são quebras de contrato da API. Pode parecer inofensivo, porém, quando formos trabalhar com front-end, automações e até mesmo integrações com parceiros, essas quebras de contrato podem ser prejudiciais.
