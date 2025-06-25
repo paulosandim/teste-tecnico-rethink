@@ -1,8 +1,8 @@
 const request = require('supertest')
 const {api, dadosUsuario} = require('../utils/testSetup')
 
-describe('fluxo de Auth', () => {
-  it('cadastrar um novo usuário com sucesso e confirma e-mail', async () => {
+describe('fluxo completo', () => {
+  it('fluxo completo rethink bank', async () => {
 
     const { cpf, full_name, email, password } = await dadosUsuario()
 
@@ -26,23 +26,23 @@ describe('fluxo de Auth', () => {
       .get(`/confirm-email?token=${userToken}`)
 
     expect(confirmaEmail.status).toBe(200);
-    expect(confirmaEmail.text).toBe('E-mail confirmado com sucesso.');
+    expect(confirmaEmail.text).toBe('E-mail confirmado com sucesso.')
     console.log(confirmaEmail.text)
 
-    // await request(api)
-    // .post('/login')
-    // .send({ email, password })
+    const loginRes = await request(api)
+      .post('/login')
+      .send({ email, password })
 
-    // const sessaoJWT = res.body.token
+    const sessaoJWT = loginRes.body.token
 
-    // const enviaPontos = await request(api)
-    //   .post('/points/send')
-    //   .set('Authorization', `Bearer ${sessaoJWT}`)
-    //   .send({ recipientCpf: cpf, amount: 50 });
+    const enviaPontos = await request(api)
+      .post('/points/send')
+      .set('Authorization', `Bearer ${sessaoJWT}`)
+      .send({ recipientCpf: cpf, amount: 50 });
 
-    // expect(enviaPontos.status).toBe(200);
-    // expect(enviaPontos.body.message).toBe('Pontos enviados com sucesso.');
-    // console.log(enviaPontos)
+    expect(enviaPontos.status).toBe(200)
+    expect(enviaPontos.body).toHaveProperty('message')
+    console.log(enviaPontos.body)
 
   })
 
