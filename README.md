@@ -69,7 +69,7 @@ npm test
 
 ### Execução via GitHub Actions:
 
-- É possível executar qualquer Workflow do GitHub Actions novamente. É só clicar na opção [Actions](https://github.com/paulosandim/teste-tecnico-rethink/actions), selecionar o Workflow que deseja, clica em *Re-run all jobs* e confirma no *Re-run jobs*.
+- É possível executar qualquer Workflow do GitHub Actions novamente. É só clicar na opção [Actions](https://github.com/paulosandim/teste-tecnico-rethink/actions), selecionar o Workflow que deseja, clicar em *Re-run all jobs* e confirma no *Re-run jobs*.
 
 ![evidencias-github-actions](./evidencias/testes/fluxo-actions.gif)
 
