@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, setupUsuario } = require('./utils/testSetup')
+const { api, setupUsuario } = require('../utils/testSetup')
 
 describe('Login de usuário', () => {
   it('deve autenticar e retornar JWT', async () => {

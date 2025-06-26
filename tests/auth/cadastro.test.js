@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, setupUsuario } = require('./utils/testSetup')
+const { api, setupUsuario } = require('../utils/testSetup')
 
 describe('Cadastro de usuário', () => {
   it('deve cadastrar novo usuário com sucesso', async () => {

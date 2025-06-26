@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, dadosUsuario } = require('./utils/testSetup')
+const { api, dadosUsuario } = require('../utils/testSetup')
 
 describe('validando dados inválidos no cadastro de usuário', () => {
 

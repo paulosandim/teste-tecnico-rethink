@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, setupUsuario } = require('./utils/testSetup')
+const { api, setupUsuario } = require('../utils/testSetup')
 
 describe('Deposita na Caixinha e confere Saldo consolidado', () => {
   let jwt, usuario

@@ -65,7 +65,7 @@ npm test
 
 - O Relatório pode ser encontrado no formato HTML, para download, na pasta [reports](./reports/) ou como Artefato dentro da execução do Workflow nas Actions.
 
-![evidencias-jest-completo](./evidencias/testes/fluxo-completo-jest.gif)
+![evidencias-jest-completo](./evidencias/testes/evidencia-testes.gif)
 
 ### Execução via GitHub Actions:
 
