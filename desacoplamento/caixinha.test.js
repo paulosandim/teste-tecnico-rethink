@@ -1,7 +1,7 @@
 const request = require('supertest')
 const { api, setupUsuario } = require('../utils/testSetup')
 
-describe('Transferência de pontos', () => {
+describe('Deposita na Caixinha e confere Saldo consolidado', () => {
   let jwt, usuario
 
   beforeAll(async () => {
@@ -23,4 +23,14 @@ describe('Transferência de pontos', () => {
       expect(res.status).toBe(200)
       expect(res.body).toHaveProperty('message')
     })
+
+   it('confere saldo geral consolidado', async () => {
+        const res = await request(api)
+          .get('/points/saldo')
+          .set('Authorization', `Bearer ${jwt}`)
+    
+        expect(res.status).toBe(200)
+        expect(res.body).toHaveProperty('normal_balance')
+        expect(res.body).toHaveProperty('piggy_bank_balance')
+      })
 })
