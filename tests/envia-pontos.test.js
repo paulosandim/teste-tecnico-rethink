@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, setupUsuario } = require('../utils/testSetup')
+const { api, setupUsuario } = require('./utils/testSetup')
 
 describe('Transferência de pontos', () => {
   let jwt, usuario

@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, dadosUsuario } = require('../utils/testSetup')
+const { api, dadosUsuario } = require('./utils/testSetup')
 
 describe('fluxo completo Rethink Bank', () => {
   let cpf, full_name, email, password, confirmToken, jwt

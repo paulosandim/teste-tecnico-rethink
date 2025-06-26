@@ -1,5 +1,5 @@
 const request = require('supertest')
-const { api, setupUsuario } = require('../utils/testSetup')
+const { api, setupUsuario } = require('./utils/testSetup')
 
 describe('Confirmação de e-mail', () => {
   it('deve confirmar e-mail com token válido', async () => {
